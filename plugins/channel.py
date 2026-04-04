@@ -372,6 +372,9 @@ async def send_movie_update(bot, base_name):
                 InlineKeyboardButton(
                     'ɢᴇᴛ ғɪʟᴇs',
                     url=f"https://t.me/{temp.U_NAME}?start=getfile-{base_name.replace(' ', '-')}"
+                    [InlineKeyboardButton("Group 1 🎬", url="https://t.me/mallumovieport"), InlineKeyboardButton("Group 2 🎬", url="https://t.me/serieslokam02")],
+            [InlineKeyboardButton("Group 3 🎬", url="https://t.me/+5heDwxgdnfFmYmZl"), InlineKeyboardButton("Group 4 🎬", url="https://t.me/+f0mS-Xgwc1E4ZDA9")],
+            [InlineKeyboardButton("🍿", url="https://t.me/newcinemaupdates"), InlineKeyboardButton("👑", url="https://t.me/HC_Founder"), InlineKeyboardButton("🤖", url="https://t.me/hodycloud")]
                 )
             ]])
             size=(2560, 1440) if LANDSCAPE_POSTER and TMDB_POSTER and movie_doc.get("is_backdrop") and not movie_doc.get("error_tmdb") else (853, 1280)
@@ -421,6 +424,9 @@ async def update_movie_message(bot, base_name):
             InlineKeyboardButton(
                 'ɢᴇᴛ ғɪʟᴇs',
                 url=f"https://t.me/{temp.U_NAME}?start=getfile-{base_name.replace(' ', '-')}"
+                [InlineKeyboardButton("Group 1 🎬", url="https://t.me/mallumovieport"), InlineKeyboardButton("Group 2 🎬", url="https://t.me/serieslokam02")],
+            [InlineKeyboardButton("Group 3 🎬", url="https://t.me/+5heDwxgdnfFmYmZl"), InlineKeyboardButton("Group 4 🎬", url="https://t.me/+f0mS-Xgwc1E4ZDA9")],
+            [InlineKeyboardButton("🍿", url="https://t.me/newcinemaupdates"), InlineKeyboardButton("👑", url="https://t.me/HC_Founder"), InlineKeyboardButton("🤖", url="https://t.me/hodycloud")]
             )
         ]])
 
