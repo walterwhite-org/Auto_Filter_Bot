@@ -388,7 +388,7 @@ async def send_movie_update(bot, base_name):
                     parse_mode=enums.ParseMode.HTML
                 )
                 is_photo = True
-            else:
+    else:
                 send_params = {
                     "chat_id": MOVIE_UPDATE_CHANNEL,
                     "text": text,
