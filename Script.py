@@ -233,8 +233,7 @@ Mᴇꜱꜱᴀɢᴇ : <b>{}</b>"""
     
     CAPTION = """<b><a href="https://t.me/mallumovieport">{file_name}</a></b>\n\n<b>⚜️ Powered By : <a href="https://t.me/hodycloud">[ ʜᴏᴅʏ ᴄʟᴏᴜᴅ ]</a></b>"""
 
-    
-        MOVIE_UPDATE_NOTIFY_TXT = """<b>{filename}</b> ✅
+    MOVIE_UPDATE_NOTIFY_TXT = """<b>{filename}</b> ✅
 
 <blockquote>🔊 : {language}
 🖥 : {quality}
