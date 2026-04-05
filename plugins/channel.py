@@ -220,7 +220,7 @@ async def send_movie_update(bot, base_name):
     
     text = generate_movie_message(movie_doc, base_name)
     buttons = InlineKeyboardMarkup([
-        [InlineKeyboardButton("CLICK HERE TO GET FILES ⬇️", url=f"https://t.me/{temp.U_NAME}?start=getfile-{base_name.replace(' ', '-')}")],
+        [InlineKeyboardButton("𝗖𝗹𝗶𝗰𝗸 𝗛𝗲𝗿𝗲 𝗧𝗼 𝗚𝗲𝘁 𝗙𝗶𝗹𝗲𝘀 ⬇️", url=f"https://t.me/{temp.U_NAME}?start=getfile-{base_name.replace(' ', '-')}")],
         [InlineKeyboardButton("𝗚𝗿𝗼𝘂𝗽 𝟭 🎬", url="https://t.me/MalluMoviePort"), InlineKeyboardButton("𝗚𝗿𝗼𝘂𝗽 𝟮 🎬", url="https://t.me/serieslokam02")],
         [InlineKeyboardButton("𝗚𝗿𝗼𝘂𝗽 𝟯 🎬", url="https://t.me/+5heDwxgdnfFmYmZl"), InlineKeyboardButton("𝗚𝗿𝗼𝘂𝗽 𝟰 🎬", url="https://t.me/+f0mS-Xgwc1E4ZDA9")],
         [InlineKeyboardButton("🍿", url="https://t.me/newcinemaupdates"), InlineKeyboardButton("👑", url="https://t.me/HC_Founder"), InlineKeyboardButton("🤖", url="https://t.me/HodyCloud")]
@@ -248,7 +248,7 @@ async def update_movie_message(bot, base_name):
 
     text = generate_movie_message(movie_doc, base_name)
     buttons = InlineKeyboardMarkup([
-        [InlineKeyboardButton("CLICK HERE TO GET FILES ⬇️", url=f"https://t.me/{temp.U_NAME}?start=getfile-{base_name.replace(' ', '-')}")],
+        [InlineKeyboardButton("𝗖𝗹𝗶𝗰𝗸 𝗛𝗲𝗿𝗲 𝗧𝗼 𝗚𝗲𝘁 𝗙𝗶𝗹𝗲𝘀 ⬇️", url=f"https://t.me/{temp.U_NAME}?start=getfile-{base_name.replace(' ', '-')}")],
         [InlineKeyboardButton("𝗚𝗿𝗼𝘂𝗽 𝟭 🎬", url="https://t.me/MalluMoviePort"), InlineKeyboardButton("𝗚𝗿𝗼𝘂𝗽 𝟮 🎬", url="https://t.me/serieslokam02")],
         [InlineKeyboardButton("𝗚𝗿𝗼𝘂𝗽 𝟯 🎬", url="https://t.me/+5heDwxgdnfFmYmZl"), InlineKeyboardButton("𝗚𝗿𝗼𝘂𝗽 𝟰 🎬", url="https://t.me/+f0mS-Xgwc1E4ZDA9")],
         [InlineKeyboardButton("🍿", url="https://t.me/newcinemaupdates"), InlineKeyboardButton("👑", url="https://t.me/HC_Founder"), InlineKeyboardButton("🤖", url="https://t.me/HodyCloud")]
