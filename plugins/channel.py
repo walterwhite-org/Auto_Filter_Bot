@@ -400,7 +400,7 @@ async def send_movie_update(bot, base_name):
                 msg = await bot.send_message(**send_params)
                 is_photo = False
 
-            await db.movie_updates.update_one(
+    await db.movie_updates.update_one(
                 {"_id": base_name},
                 {"$set": {"message_id": msg.id, "is_photo": is_photo}}
             )
