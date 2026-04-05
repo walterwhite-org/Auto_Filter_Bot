@@ -404,7 +404,7 @@ async def send_movie_update(bot, base_name):
                 {"_id": base_name},
                 {"$set": {"message_id": msg.id, "is_photo": is_photo}}
             )
-            return msg
+    return msg
         except FloodWait as e:
             wait_time = e.value + 2
             await asyncio.sleep(wait_time)
