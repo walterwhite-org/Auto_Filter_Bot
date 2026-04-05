@@ -377,8 +377,8 @@ async def send_movie_update(bot, base_name):
     except Exception as e:
         logger.error(f"Failed to send movie update: {e}")
 
-size=(2560, 1440) if LANDSCAPE_POSTER and TMDB_POSTER and movie_doc.get("is_backdrop") and not movie_doc.get("error_tmdb") else (853, 1280)
-if movie_doc.get("poster_url") and not LINK_PREVIEW:
+    size=(2560, 1440) if LANDSCAPE_POSTER and TMDB_POSTER and movie_doc.get("is_backdrop") and not movie_doc.get("error_tmdb") else (853, 1280)
+    if movie_doc.get("poster_url") and not LINK_PREVIEW:
                 resized_poster = await fetch_image(movie_doc["poster_url"], size)
                 msg = await bot.send_photo(
                     chat_id=MOVIE_UPDATE_CHANNEL,
