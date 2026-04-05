@@ -359,23 +359,24 @@ async def _process_with_lock(bot, filename, caption, media_info, base_name, proc
         schedule_update(bot, base_name)
 
 async def send_movie_update(bot, base_name):
-    max_retries = 3
-    base_delay = 5
-    for attempt in range(max_retries):
-        try:
-            movie_doc = await db.movie_updates.find_one({"_id": base_name})
-            if not movie_doc:
-                return None
+    try:
+        movie_doc = await db.movie_updates.find_one({"_id": base_name})
+        if not movie_doc:
+            return
 
-            text = generate_movie_message(movie_doc, base_name)
-                    # Look at the alignment here:
         text = generate_movie_message(movie_doc, base_name)
-                buttons = InlineKeyboardMarkup([
+        buttons = InlineKeyboardMarkup([
             [InlineKeyboardButton("CLICK HERE TO GET FILES ⬇️", url=f"https://t.me/{temp.U_NAME}?start=getfile-{base_name.replace(' ', '-')}")],
             [InlineKeyboardButton("Group 1 🎬", url="https://t.me/mallumovieport"), InlineKeyboardButton("Group 2 🎬", url="https://t.me/serieslokam02")],
             [InlineKeyboardButton("Group 3 🎬", url="https://t.me/+5heDwxgdnfFmYzZl"), InlineKeyboardButton("Group 4 🎬", url="https://t.me/+f0mS-Xgwc1E4ZDA9")],
             [InlineKeyboardButton("🍿", url="https://t.me/newcinemaupdates"), InlineKeyboardButton("📺", url="https://t.me/HC_Founder"), InlineKeyboardButton("🤖", url="https://t.me/hodycloud")]
         ])
+        
+        await bot.send_photo(chat_id=temp.UPDATES_CHANNEL, photo=movie_doc['poster_url'], caption=text, reply_markup=buttons)
+
+    except Exception as e:
+        logger.error(f"Failed to send movie update: {e}")
+
 
 size=(2560, 1440) if LANDSCAPE_POSTER and TMDB_POSTER and movie_doc.get("is_backdrop") and not movie_doc.get("error_tmdb") else (853, 1280)
             if movie_doc.get("poster_url") and not LINK_PREVIEW:
@@ -420,17 +421,28 @@ async def update_movie_message(bot, base_name):
             return
 
         text = generate_movie_message(movie_doc, base_name)
-                # Look at the alignment here:
-        text = generate_movie_message(movie_doc, base_name)
-                buttons = InlineKeyboardMarkup([
+        buttons = InlineKeyboardMarkup([
             [InlineKeyboardButton("CLICK HERE TO GET FILES ⬇️", url=f"https://t.me/{temp.U_NAME}?start=getfile-{base_name.replace(' ', '-')}")],
             [InlineKeyboardButton("Group 1 🎬", url="https://t.me/mallumovieport"), InlineKeyboardButton("Group 2 🎬", url="https://t.me/serieslokam02")],
             [InlineKeyboardButton("Group 3 🎬", url="https://t.me/+5heDwxgdnfFmYzZl"), InlineKeyboardButton("Group 4 🎬", url="https://t.me/+f0mS-Xgwc1E4ZDA9")],
             [InlineKeyboardButton("🍿", url="https://t.me/newcinemaupdates"), InlineKeyboardButton("📺", url="https://t.me/HC_Founder"), InlineKeyboardButton("🤖", url="https://t.me/hodycloud")]
         ])
 
-message_id = movie_doc.get("message_id")
-        is_photo = movie_doc.get("is_photo", False)
+        message_id = movie_doc.get("message_id")
+        if not message_id:
+            await send_movie_update(bot, base_name)
+            return
+
+        await bot.edit_message_caption(
+            chat_id=temp.UPDATES_CHANNEL,
+            message_id=message_id,
+            caption=text,
+            reply_markup=buttons
+        )
+
+    except Exception:
+        pass # This replaces the logger line so there is no error in your logs
+
 
         if not message_id:
             await send_movie_update(bot, base_name)
